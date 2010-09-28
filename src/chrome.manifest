@@ -1,0 +1,5 @@
+content   httctest                 chrome/content/
+skin      httctest   classic/1.0   chrome/skin/
+locale    httctest   en-US         chrome/locale/en-US/
+
+overlay   chrome://browser/content/browser.xul   chrome://httctest/content/ff-overlay.xul
