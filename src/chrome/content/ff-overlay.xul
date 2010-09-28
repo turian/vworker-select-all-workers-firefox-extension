@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="chrome://httctest/skin/overlay.css" type="text/css"?>
-<!DOCTYPE overlay SYSTEM "chrome://httctest/locale/overlay.dtd">
+<?xml-stylesheet href="chrome://browser/skin/global.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://vworkercheckboxes/locale/overlay.dtd">
+
 <overlay id="vworkercheckboxes-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script src="ff-overlay.js"/>
 
-<!--
-  <stringbundleset id="stringbundleset">
-    <stringbundle id="httctest-strings" src="chrome://httctest/locale/overlay.properties"/>
-  </stringbundleset>
--->
+  <!-- Context menu for the toolbar button -->
+  <popupset>
+    <menupopup id="vworker-popup" position="after_end"
+      onpopupshowing="vworkerUtil.toggleMenuitemsState(content.document)">
+      <menuitem id="vworker-menu-autoload" class="menuitem-iconic" 
+        type="checkbox" checked="true" 
+        label="&vworkercheckboxes.tb.autoload;"
+        accesskey="&vworkercheckboxes.tb.autoload.key;" />
+      <menuseparator/>
+      <menuitem id="vworker-menu-toggleoff" class="menuitem-iconic" 
+        label="&vworkercheckboxes.tb.toggleon;"
+        accesskey="&vworkercheckboxes.tb.toggleon.key;"
+        oncommand="vworkerUtil.toggleCheckboxes(content.document, true);" />
+      <menuitem id="vworker-menu-toggleon" class="menuitem-iconic" 
+        label="&vworkercheckboxes.tb.toggleoff;"
+        accesskey="&vworkercheckboxes.tb.toggleoff.key;"
+        oncommand="vworkerUtil.toggleCheckboxes(content.document, false);" />
+    </menupopup>
+  </popupset>
+
+  <!-- Firefox status bar -->
+  <statusbar id="status-bar">
+    <statusbarpanel id="vworker-statusbar-button" style="statusbarpanel-iconic">
+      <image context="vworker-popup" 
+        src="chrome://vworkercheckboxes/skin/statusbaricon.png" popup="vworker-popup"/>
+    </statusbarpanel>
+  </statusbar>
 
 </overlay>
 

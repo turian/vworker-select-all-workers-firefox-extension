@@ -37,11 +37,11 @@ var vworkerUtil = {
 
     if ( vworkerUtil.isSearchResultsUrl(doc) )
     {
-      // TODO: if (auto), check all checkboxes
-      vworkerUtil.toggleCheckboxes(doc, true);
+      // check if the 'Autoload' feature is activated
+      var menuAutoload = document.getElementById('vworker-menu-autoload');
 
-      // TODO: activate menuitems
-
+      if (menuAutoload.hasAttribute('checked'))
+        vworkerUtil.toggleCheckboxes(doc, true);
     }
 
   },
@@ -68,6 +68,7 @@ var vworkerUtil = {
    */
   toggleCheckboxes: function(doc, checked)
   {
+    console.logStringMessage(doc.toString());
     // retrieve the checkboxes via XPath
     var nodesSnapshot = doc.evaluate(XPATH_CHECKBOXES, doc, null, 
         XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
@@ -80,8 +81,23 @@ var vworkerUtil = {
       else
         nodesSnapshot.snapshotItem(i).removeAttribute('checked');
     }
-  }
+  },
 
+
+  /**
+   * Enables/disables the context menu items depending on the current URL
+   */
+  toggleMenuitemsState: function(doc)
+  {
+    var menuToggleon = document.getElementById('vworker-menu-toggleon');
+    var menuToggleoff = document.getElementById('vworker-menu-toggleoff');
+
+    var enabled = vworkerUtil.isSearchResultsUrl(doc);
+    
+    // enable or disable menuitems
+    menuToggleon.setAttribute('disabled', !enabled);
+    menuToggleoff.setAttribute('disabled', !enabled);
+  }
 }
 
 

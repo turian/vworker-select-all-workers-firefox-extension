@@ -1,0 +1,7 @@
+<!ENTITY vworkercheckboxes.tb.autoload "Execute automatically">
+<!ENTITY vworkercheckboxes.tb.autoload.key "a">
+<!ENTITY vworkercheckboxes.tb.toggleon "Toggle all checkboxes on">
+<!ENTITY vworkercheckboxes.tb.toggleon.key "n">
+<!ENTITY vworkercheckboxes.tb.toggleoff "Toggle all checkboxes off">
+<!ENTITY vworkercheckboxes.tb.toggleoff.key "f">
+
