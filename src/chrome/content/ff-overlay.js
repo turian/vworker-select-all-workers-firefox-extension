@@ -1,10 +1,10 @@
 
 // Regular expression that matches the vWorker search results page
-RE_VWORKER_SEARCH_RESULTS_URL = 'http://www.vworker.com/RentACoder/SoftwareBuyers/SearchCodersAction.asp?';
-//RE_VWORKER_SEARCH_RESULTS_URL = 'SearchCodersAction.asp';
+var RE_VWORKER_SEARCH_RESULTS_URL = 'http://www.vworker.com/RentACoder/SoftwareBuyers/SearchCodersAction.asp?';
+//var RE_VWORKER_SEARCH_RESULTS_URL = 'SearchCodersAction.asp';
 
 // XPath expression that returns the checkboxes
-XPATH_CHECKBOXES = '//input[@name="lngCoderPersonId"]'
+var XPATH_CHECKBOXES = '//input[@name="lngCoderPersonId"]'
 
 
 /**
@@ -75,12 +75,7 @@ var vworkerUtil = {
 
     // toggle them on/off according to the 'checked' param
     for ( var i=0 ; i < nodesSnapshot.snapshotLength; i++ )
-    {
-      if (checked)
-        nodesSnapshot.snapshotItem(i).setAttribute('checked', 'checked');
-      else
-        nodesSnapshot.snapshotItem(i).removeAttribute('checked');
-    }
+      nodesSnapshot.snapshotItem(i).checked = checked;
   },
 
 
@@ -97,6 +92,8 @@ var vworkerUtil = {
     // enable or disable menuitems
     menuToggleon.setAttribute('disabled', !enabled);
     menuToggleoff.setAttribute('disabled', !enabled);
+
+    return true
   }
 }
 

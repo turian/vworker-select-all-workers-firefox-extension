@@ -7,7 +7,7 @@
   <script src="ff-overlay.js"/>
 
   <!-- Context menu for the toolbar button -->
-  <popupset>
+  <popupset id="mainPopupSet">
     <menupopup id="vworker-popup" position="after_end"
       onpopupshowing="vworkerUtil.toggleMenuitemsState(content.document)">
       <menuitem id="vworker-menu-autoload" class="menuitem-iconic" 
