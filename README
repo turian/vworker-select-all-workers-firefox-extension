@@ -1,0 +1,59 @@
+vWorker Select All Workers
+==========================
+
+DESCRIPTION
+===========
+
+vWorker Select All Workers is an extension for Mozilla Firefox that
+allows automatic selection for inviting all the coders on the vWorker.com
+site. 
+
+USAGE
+=====
+
+By default, the extension selects all the coders on the vWorker.com results
+page automatically without requiring intervention of the user. This 
+behaviour can be modify by clicking on the status bar icon, and unchecking 
+the "Execute automatically" checkbox.
+
+The status bar icon menu provides other two items that select / unselect 
+the coders on the page manually. These two options are only enabled when the 
+user is visiting a vWorker.com results page.
+
+PACKAGING
+=========
+
+For packaging the extension's files and produce the resulting .xpi file,
+a simple Makefile for the 'make' tool is provided. On Linux, the following
+instructions build 'vworkerextension.xpi' under the working directory
+(the 'zip' command needs to available installed):
+
+$ make package
+
+Alternatively, the .xpi file can be created manually by using the 'zip'
+command directly, or any other zipping software. The resulting .xpi file
+should contain the following files:
+
+chrome/content/ff-overlay.js
+chrome/content/ff-overlay.xul
+chrome/skin/statusbaricon.png
+chrome/locale/en-US/overlay.dtd
+install.rdf
+chrome.manifest
+
+Under linux, the following instructions build the .xpi file:
+
+$ cd src
+$ zip -r ../vworkerextension.xpi install.rdf chrome.manifest chrome
+
+
+INSTALLATION
+============
+
+The extension can be installed by drag-and-dropping the 'vworkerextension.xpi'
+file over an existing Firefox window, or by pointing Firefox to the local URL
+where the file is stored.
+
+For example, if the file is stored in '/tmp/vworkerextension.xpi', the 
+browser should be pointed to 'file:///tmp/vworkerextension.xpi'.
+
